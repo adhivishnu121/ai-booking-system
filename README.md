@@ -54,4 +54,4 @@ A smart restaurant reservation system built with Spring Boot, featuring intellig
 ---
 
 ## 👨‍💻 Author
-Adhi Vishnu
+Adhivishnu Ganipineni
