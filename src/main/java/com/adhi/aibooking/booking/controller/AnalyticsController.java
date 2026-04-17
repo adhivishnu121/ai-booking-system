@@ -1,15 +1,16 @@
 package com.adhi.aibooking.booking.controller;
 
+import com.adhi.aibooking.booking.dto.DashboardResponse;
 import com.adhi.aibooking.booking.dto.HourPrediction;
 import com.adhi.aibooking.booking.service.ReservationService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/analytics")
 public class AnalyticsController {
-
+	
     private final ReservationService service;
 
     public AnalyticsController(ReservationService service) {
@@ -39,4 +40,10 @@ public class AnalyticsController {
     public List<HourPrediction> predictBusyHours() {
         return service.predictBusyHours();
     }
-}
+    
+    @GetMapping("/dashboard")
+    public DashboardResponse getDashboard(
+            @RequestParam(required = false) String date) {
+
+        return service.getDashboard(date);
+    }}

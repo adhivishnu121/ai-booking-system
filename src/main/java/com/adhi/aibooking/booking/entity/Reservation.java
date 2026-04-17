@@ -24,7 +24,9 @@ public class Reservation {
     private String email;
     private String phoneNumber;
     private int partySize;
-
+    private String preferredZone;
+    private boolean preferWindow;
+    private boolean preferVip;
     private LocalDateTime bookingTime;
 
     @Column(length = 1000)

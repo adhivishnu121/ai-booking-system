@@ -1,11 +1,11 @@
 package com.adhi.aibooking.booking.controller;
 
-import com.adhi.aibooking.booking.dto.HourPrediction;
 import com.adhi.aibooking.booking.entity.Reservation;
 import com.adhi.aibooking.booking.service.ReservationService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+@CrossOrigin(origins = "http://localhost:3000")
 
 @RestController
 @RequestMapping("/reservations")
@@ -22,10 +22,12 @@ public class ReservationController {
                               @RequestBody Reservation reservation) {
         return service.createReservation(reservation, restaurantId);
     }
-    @GetMapping
-    public List<Reservation> getAll() {
-        return service.getAllReservations();
+    @GetMapping("/by-date")
+    public List<Reservation> getByDate(@RequestParam String date) {
+
+        return service.getReservationsByDate(date);
     }
+  
 
     @GetMapping("/{id}")
     public Reservation getById(@PathVariable String id) {
